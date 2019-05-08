@@ -105,10 +105,15 @@ Master.feed(new Dog('狗狗'),new Bone('骨头'))
  * 抽象方法
  * 用 abstract 定义抽象类和抽象方法,抽象类中的抽象方法不包括具体实现并且必须在派生中实现
  * 抽象方法只能放在抽象类里面
+ * 子类中必须有的方法
 */
 
 abstract class Anima {
-  abstract eat():any
+  name:string
+  constructor(name:string){
+    this.name=name
+  }
+  abstract eat():any //不包含业务逻辑
 }
 // 抽象类不能实例化
 class Cat extends Anima{
@@ -116,4 +121,9 @@ class Cat extends Anima{
   constructor(name:string){
     super(name)
   }
-}
+  eat(){
+    console.log('猫');
+  } 
+ }
+
+ 

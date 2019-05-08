@@ -118,9 +118,11 @@ Master.feed(new Dog('狗狗'), new Bone('骨头'));
  * 抽象方法
  * 用 abstract 定义抽象类和抽象方法,抽象类中的抽象方法不包括具体实现并且必须在派生中实现
  * 抽象方法只能放在抽象类里面
+ * 子类中必须有的方法
 */
 var Anima = /** @class */ (function () {
-    function Anima() {
+    function Anima(name) {
+        this.name = name;
     }
     return Anima;
 }());
@@ -131,5 +133,8 @@ var Cat = /** @class */ (function (_super) {
     function Cat(name) {
         return _super.call(this, name) || this;
     }
+    Cat.prototype.eat = function () {
+        console.log('猫');
+    };
     return Cat;
 }(Anima));
